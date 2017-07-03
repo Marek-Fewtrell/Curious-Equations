@@ -1,0 +1,27 @@
+
+
+
+<div class="jumbo">
+	<div class="right tomster"></div>
+	<h2>List of Curious Equations</h2>
+	<p>
+		This will have a list of equations you can look at.
+	</p>
+	
+	{{#each model as |equationGenre|}}
+		<hr>
+		<ul>
+		<h2>{{ equationGenre.genre }}</h2>
+		{{#each equationGenre.equations as |equation|}}
+			<li>
+				<h4>{{equation.title}}</h4>
+				<div><span>The equation:</span>{{equation.equation}}</div>
+				<div><span>The description:</span>{{equation.description}}</div>
+				<div><span>The explanation:</span>{{equation.explanation}}</div>
+			</li>
+		{{/each}}
+		</ul>
+		
+	{{/each}}
+</div>
+{{outlet}}
