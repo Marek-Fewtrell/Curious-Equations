@@ -6,9 +6,14 @@
 	<div class="col-sm-4">
 		<div class="panel-group" id="accordian">
 			<ul class="list-group">
-			{{#each model as |equationList|}}
-				{{ equation-listing equation=equationList}}
-			{{/each}}
+			
+			{{#list-filter
+				filter=(action 'filterByGenre') as |filterList|}}
+				{{#each filterList as |equationList|}}
+					{{ equation-listing equation=equationList}}
+				{{/each}}
+			{{/list-filter}}
+			
 			</ul>
 		</div>
 	</div>

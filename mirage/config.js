@@ -1,80 +1,87 @@
 export default function() {
 	this.namespace = '/api';    // make this `/api`, for example, if your API is namespaced
 	
-	this.get('/equations', function() {
-		
-		
-		return {
-			data: [
-				{
-					type: "equation",
-					id: "volume-cylinder",
-					attributes: {
-						title: "Cylinder Volume Equation",
-						equation: "Pi * r squared * height",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "volume"
-					}
-				},
-				{
-					type: "equation",
-					id: "volume-cone",
-					attributes: {
-						title: "Cone Volume Equation",
-						equation: "Pi * r squared * height",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "volume"
-					}
-				},
-				{
-					type: "equation",
-					id: "volume-box",
-					attributes: {
-						title: "Box Volume Equation",
-						equation: "width * height * depth",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "volume"
-					}
-				},
-				{
-					type: "equation",
-					id: "area-circle",
-					attributes: {
-						title: "Circle Area Equation",
-						equation: "Pi * r squared",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "area"
-					}
-				},
-				{
-					type: "equation",
-					id: "area-sqaure",
-					attributes: {
-						title: "Square Area Equation",
-						equation: "width * height",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "area"
-					}
-				},
-				{
-					type: "equation",
-					id: "triangle-pythag",
-					attributes: {
-						title: "Pythagoras Equation",
-						equation: "a * b = c",
-						description: "Calc the total volume of something",
-						explanation: "explanation",
-						genre: "area"
-					}
-				},
-			]
+	
+	
+	let equations = [
+		{
+			type: "equation",
+			id: "volume-cylinder",
+			attributes: {
+				title: "Cylinder Volume Equation",
+				equation: "Pi * r squared * height",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "volume"
+			}
+		},
+		{
+			type: "equation",
+			id: "volume-cone",
+			attributes: {
+				title: "Cone Volume Equation",
+				equation: "Pi * r squared * height",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "volume"
+			}
+		},
+		{
+			type: "equation",
+			id: "volume-box",
+			attributes: {
+				title: "Box Volume Equation",
+				equation: "width * height * depth",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "volume"
+			}
+		},
+		{
+			type: "equation",
+			id: "area-circle",
+			attributes: {
+				title: "Circle Area Equation",
+				equation: "Pi * r squared",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "area"
+			}
+		},
+		{
+			type: "equation",
+			id: "area-sqaure",
+			attributes: {
+				title: "Square Area Equation",
+				equation: "width * height",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "area"
+			}
+		},
+		{
+			type: "equation",
+			id: "triangle-pythag",
+			attributes: {
+				title: "Pythagoras Equation",
+				equation: "a * b = c",
+				description: "Calc the total volume of something",
+				explanation: "explanation",
+				genre: "triangle"
+			}
 		}
+	];
 		
+		this.get('/equations', function(db, request) {
+			if (request.queryParams.genre !== undefined) {
+				let filteredEquations = equations.filter(function(i) {
+					return i.attributes.genre.toLowerCase().indexOf(request.queryParams.genre.toLowerCase()) !== -1;
+				});
+				return  { data: filteredEquations };
+			} else {
+				return {data: equations };
+			}
+		});
 		
 		/*return {
 			data: [
@@ -226,5 +233,5 @@ export default function() {
 			}
 			]
 		};*/
-	});
+	
 }
