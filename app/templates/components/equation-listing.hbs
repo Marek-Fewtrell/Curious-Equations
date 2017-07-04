@@ -1,7 +1,9 @@
 
 <li class="list-group-item">
 	<strong>
-		<a data-toggle="collapse" data-parent="#accordian" href="#{{equation.id}}">{{ equation.title }}</a>
+		{{#link-to "equations.show" equation.id}}
+			{{equation.title}}
+		{{/link-to}}
 	</strong>
 </li>
 

@@ -8,7 +8,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
-  this.route('equations', function() {});
+  this.route('equations', function() {
+    this.route('show', { path: '/:equation_id' });
+  });
 });
 
 export default Router;

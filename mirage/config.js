@@ -83,6 +83,10 @@ export default function() {
 			}
 		});
 		
+		this.get('/equations/:id', function(db, request) {
+			return { data: equations.find((equation) => request.params.id === equation.id)};
+		});
+		
 		/*return {
 			data: [
 				{
