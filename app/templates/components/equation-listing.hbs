@@ -1,9 +1,21 @@
 
+{{#link-to "equations.show" equation.id}}
 <li class="list-group-item">
-	<strong>
-		{{#link-to "equations.show" equation.id}}
-			{{equation.title}}
-		{{/link-to}}
-	</strong>
+<div class="row">
+	<div class="col-sm-10">
+		<strong>
+			
+				{{equation.title}}
+			
+		</strong>
+		<div>
+			{{equation.description}}
+		</div>
+	</div>
+	<div class="col-sm-2">
+		{{equation.genre}}
+	</div>
+</div>
 </li>
+{{/link-to}}
 

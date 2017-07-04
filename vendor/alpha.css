@@ -1,0 +1,18 @@
+.list-filter input {
+    padding: 11px;
+    font-size: 15px;
+    width: 500px;
+    margin: 30px auto;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: solid 1px lightgray;
+    display: block;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.equation {
+	margin-left: 10px;
+	margin-right: 10px;
+}

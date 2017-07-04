@@ -1,14 +1,15 @@
 <h3>{{model.title}}</h3>
-<div>
-	<h4>Description</h4>
-	{{model.description}}
-</div>
-<div>
-	<h4>Equation</h4>
-	{{model.equation}}
-</div>
-<div>
-	<h4>Explanation</h4>
-	{{model.explanation}}
+<div class="equation">
+	<div>
+		{{model.description}}
+	</div>
+	<div>
+		<h4>Equation</h4>
+		<div class="text-center">{{model.equation}}</div>
+	</div>
+	<div>
+		<h4>Explanation</h4>
+		<div class="text-justify">{{model.explanation}}</div>
+	</div>
 </div>
 {{outlet}}
