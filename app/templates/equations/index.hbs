@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-sm-12">
+		<input id="searchField" tpye="text">
+		<button class="btn btn-default">Advanced Search</button>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel-group" id="accordian">
+			<ul class="list-group">
+			{{#each model as |equationList|}}
+				{{ equation-listing equation=equationList}}
+			{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="col-sm-8">
+		<h3>Volume - Cylinder Equation</h3>
+		<div>
+			<h4>Description</h4>
+			Calc the total volume of something
+		</div>
+		<div>
+			<h4>Equation</h4>
+			pi * r * height
+		</div>
+		<div>
+			<h4>Explanation</h4>
+			You get the circle then times by the height.
+		</div>
+	</div>
+</div>
+{{outlet}}

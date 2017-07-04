@@ -1,14 +1,15 @@
 
-
-
 <div class="jumbo">
 	<div class="right tomster"></div>
 	<h2>List of Curious Equations</h2>
 	<p>
 		This will have a list of equations you can look at.
 	</p>
-	
-	{{#each model as |equationGenre|}}
+
+	{{outlet}}
+			
+			
+	{{!-- #each model as |equationGenre|}}
 		<hr>
 		<ul>
 		<h2>{{ equationGenre.genre }}</h2>
@@ -21,7 +22,6 @@
 			</li>
 		{{/each}}
 		</ul>
-		
-	{{/each}}
+	{{/each --}}
 </div>
-{{outlet}}
+
